@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar {
+  padding: 5px;
+  box-shadow: 0px 10px 10px -10px rgba(128, 128, 128, 0.473);
+}
+
+.footer {
+  padding: 5px;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  bottom: 0px;
+  width: 98vw;
+}
