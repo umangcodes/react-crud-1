@@ -3,8 +3,9 @@ import React from "react";
 export default function Footer() {
   return (
     <div className="footer">
-      <h5>Start time: 0848 EST</h5>
-      <h5>End time: xxxx xxx</h5>
+      <span>
+        <a href="https://github.com/umangcodes/react-crud-1">GitHub</a>
+      </span>
     </div>
   );
 }
