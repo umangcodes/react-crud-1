@@ -8,9 +8,7 @@ The main features of this app are as follows:
 - Update an user and its username, while also cancelling the update prompt without any changes
 - Display the list of users in the system.
 
-##
-
-How each feature in the system is developed.
+## How each feature in the system is developed.
 
 ### Create
 
