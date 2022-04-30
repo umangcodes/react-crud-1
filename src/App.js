@@ -2,15 +2,26 @@ import Navbar from "./components/navigation/Navbar";
 import Footer from "./components/navigation/Footer";
 import UserTable from "./components/tables/UserTable";
 import userdata from "./userdata/users";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddUserForm from "./components/forms/AddUserForm";
 import EditUserForm from "./components/forms/EditUserForm";
 function App() {
-  const [users, setUsers] = useState(userdata);
+  let localStore = JSON.parse(localStorage.getItem("users"));
+
+  const checkForData = () => {
+    if (localStore === null) {
+      console.log("user data null");
+      localStore = userdata;
+      console.log(localStore);
+    }
+    console.log(localStore);
+  };
+  checkForData();
+
+  const [users, setUsers] = useState(localStore);
   const [editMode, setEditMode] = useState(false);
   const initialFormState = { id: null, name: "", username: "" };
   const [currentUser, setCurrentUser] = useState(initialFormState);
-
   const editRow = (user) => {
     setEditMode(true);
     setCurrentUser({ id: user.id, name: user.name, username: user.username });
@@ -27,6 +38,10 @@ function App() {
     setEditMode(false);
     setUsers(users.map((user) => (user.id === id ? updatedUser : user)));
   };
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log("use effect triggered");
+  }, [users]);
   return (
     <div className="App">
       <Navbar />
